@@ -1,7 +1,7 @@
 # ToyFileBoard
 파일 게시판 서브 프로젝트
 
-##skill  
+## skill  
 Apache (2.4.6)   
 JAVA (1.8.0)  
 MySQL (8.0.30)  
@@ -10,14 +10,14 @@ Bootstrap (5.2)
 Maven (3.8.6) 
 spring-data-jpa
   
-##ide
+## ide
 Intellij
 
-##db tool
+## db tool
 Mysql WorkBench  
 
-##ci/cd
+## ci/cd
 not used
 
-##server
+## server
 local
