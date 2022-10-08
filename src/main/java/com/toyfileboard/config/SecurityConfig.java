@@ -27,17 +27,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/files/**");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests()
+        http.csrf().disable().
+            authorizeHttpRequests()
                 .antMatchers("/**").permitAll()
                 .and()
             .formLogin()
                 .loginPage("/member/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/file/upload")
                 .permitAll()
                 .and()
             .logout()
