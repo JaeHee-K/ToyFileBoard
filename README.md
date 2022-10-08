@@ -66,4 +66,6 @@ saved_path varchar(200));
   
 - application.properties의 spring.datasource url, username, password는 로컬 환경에 맞게 변경  
   
+- src/main/resources 아래에 files 폴더를 생성  
+  
 - csrf는 사용하지 않습니다
