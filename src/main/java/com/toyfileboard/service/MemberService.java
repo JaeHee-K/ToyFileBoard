@@ -6,6 +6,7 @@ import com.toyfileboard.repository.MemberRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -48,4 +49,11 @@ public class MemberService implements UserDetailsService {
 
         return new User(member.getUsername(), member.getPassword(), authorities);
     }
+
+    /**
+     * 유저 정보 가져오기
+     * Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+     * String username = ((UserDetails) principal).getUsername();
+     * System.out.println(username);
+     */
 }

@@ -2,15 +2,20 @@
 
 파일 게시판 서브 프로젝트
 
-## skill
-
-Apache (2.4.6)   
+## skill & library  
+ 
 JAVA (1.8.0)  
 MySQL (8.0.30)  
 Spring boot (2.7.4)  
-Bootstrap (5.2)  
-Maven (3.8.6)
-spring-data-jpa
+Spring Security (2.6.8)  
+Maven  
+spring-boot-starter-data-jpa  
+spring-boot-starter-web  
+spring-boot-devtools  
+mysql-connector-java  
+lombok (1.18.24)  
+thymeleaf (2.7.3)  
+thymeleaf-extras-springsecurity5  
 
 ## ide
 
