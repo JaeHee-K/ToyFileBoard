@@ -46,18 +46,50 @@ schema는 file입니다
 
 - **[Member]**  
 >create table member (  
-id BIGINT(20) primary key,  
+id BIGINT(20) auto_increment primary key,  
 username varchar(200) not null,  
 password varchar(200) not null);  
   
 
 - **[storage]**  
->file_id BIGINT(20) primary key,  
+>file_id BIGINT(20) auto_increment primary key,  
 org_nm varchar(200),  
 saved_nm varchar(200),  
 saved_path varchar(200));  
 
 <br/>
+
+## 🔗 API
+**1. Main View**  
+> GET "/"  
+
+**2. 회원가입 page**  
+> GET "/member/signup"  
+
+**3. 회원가입 feature(기능)**  
+> POST "/member/signup"  
+
+**4. 로그인 page**  
+> GET "/member/login"  
+
+**5. 파일 업로드 page**  
+> GET "/file/upload"  
+
+**6. 파일 업로드 feature(기능)**  
+> POST "/file/upload"  
+
+**7. 업로드 된 파일 리스트 page**  
+> GET "/file/listAll"  
+
+**8. 파일의 이미지 불러오는 feature(기능)**  
+ - fileId : storage 테이블의 id  
+> GET /file/image/{fileId}"  
+
+**9. 파일 다운로드 feature(기능)**  
+ - id : storage 테이블의 id  
+> GET "/file/attach/{id}"  
+
+<br/>  
 
 ## 📒 Note
 - application.properties의 file.dir은 로컬 환경에 맞게 수정(대신 프로젝트내의 files폴더로 향하게 수정)  
