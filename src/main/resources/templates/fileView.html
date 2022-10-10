@@ -8,12 +8,20 @@
     <h3>이미지 출력</h3>
     <div th:each="imageFile : ${all} ">
         <img  th:src="|/file/image/${imageFile.id}|" width="150" height="150">
-        <p th:text="${imageFile.orgNm}"></p>
+        <div style="display: flex;">
+            <p th:text="${imageFile.name}"></p>
+            <p>&nbsp;:&nbsp;</p>
+            <p th:text="${imageFile.orgNm}"></p>
+        </div>
     </div>
 
     <h3>파일 다운로드</h3>
     <div th:each="file : ${all}">
-        <a th:href="|/file/attach/${file.id}|" th:text="${file.orgNm}"></a>
+        <div style="display: flex; align-items:center;">
+            <p th:text="${file.name}"></p>
+            <p>&nbsp;:&nbsp;</p>
+            <a th:href="|/file/attach/${file.id}|" th:text="${file.orgNm}"></a>
+        </div>
     </div>
 </body>
 </html>

@@ -48,12 +48,14 @@ schema는 file입니다
 >create table member (  
 id BIGINT(20) auto_increment primary key,  
 username varchar(200) not null,  
-password varchar(200) not null);  
+password varchar(200) not null),  
+name varchar(200);
   
 
 - **[storage]**  
 >file_id BIGINT(20) auto_increment primary key,  
 org_nm varchar(200),  
+name varchar(200),  
 saved_nm varchar(200),  
 saved_path varchar(200));  
 
