@@ -16,7 +16,7 @@ public class MainController {
 
     @GetMapping("/")
     public String main() {
-        return "index";
+        return "redirect:/member/login";
     }
 
     @GetMapping("/member/signup")

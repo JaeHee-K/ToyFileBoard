@@ -33,9 +33,9 @@ public class FileController {
     }
 
     @PostMapping("/file/upload")
-    public String uploadFile(@RequestParam("file")MultipartFile file, @RequestParam("files") List<MultipartFile> files) throws IOException {
-
-        fileService.saveFile(file);
+    public String uploadFile(@RequestParam("files") List<MultipartFile> files) throws IOException {
+//        @RequestParam("file")MultipartFile file,
+//        fileService.saveFile(file);
 
         for (MultipartFile multipartFile : files) {
             fileService.saveFile(multipartFile);
@@ -76,6 +76,5 @@ public class FileController {
 
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition).body(resource);
     }
-
 
 }
