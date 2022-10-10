@@ -53,7 +53,8 @@ name varchar(200));
   
 
 - **[storage]**  
->file_id BIGINT(20) auto_increment primary key,  
+>create table storage (
+file_id BIGINT(20) auto_increment primary key,  
 org_nm varchar(200),  
 name varchar(200),  
 saved_nm varchar(200),  
