@@ -1,13 +1,17 @@
 package com.toyfileboard.controller;
 
 import com.toyfileboard.model.File;
+import com.toyfileboard.model.Member;
 import com.toyfileboard.repository.FileRepository;
+import com.toyfileboard.repository.MemberRepository;
 import com.toyfileboard.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +22,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
@@ -25,6 +30,7 @@ public class FileController {
 
     private final FileService fileService;
     private final FileRepository fileRepository;
+    private final MemberRepository memberRepository;
 
     @GetMapping("/file/upload")
     public String uploadForm() {
@@ -47,8 +53,15 @@ public class FileController {
     @GetMapping("/file/listAll")
     public String listAll(Model model) {
 
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = ((UserDetails) principal).getUsername();
+        Optional<Member> memberWrapper = memberRepository.findByUsername(username);
+        Member member = memberWrapper.get();
+        String name = member.getName();
+
         List<File> files = fileRepository.findAll();
         model.addAttribute("all", files);
+        model.addAttribute("loginName", name);
         return "fileView";
     }
 
