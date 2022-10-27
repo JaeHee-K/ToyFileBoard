@@ -61,4 +61,11 @@ public class FileService {
         return savedFile.getId();
     }
 
+    public void deleteFile(Long id) throws IOException {
+
+        File deletedFile = fileRepository.findById(id).orElse(null);
+
+        fileRepository.delete(deletedFile);
+    }
+
 }

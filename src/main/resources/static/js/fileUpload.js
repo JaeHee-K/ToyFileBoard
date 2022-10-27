@@ -3,3 +3,9 @@ $(document).ready(function(){
         $('form p').text(this.files.length + " file(s) selected");
     });
 });
+
+$(function (){
+    $("#uploadButton").click(function(){
+        $("#progressBar").toggle();
+    });
+});

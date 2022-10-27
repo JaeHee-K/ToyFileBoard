@@ -77,4 +77,11 @@ public class FileController {
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, contentDisposition).body(resource);
     }
 
+    @GetMapping("/file/delete/{fileid}")
+    public String deleteFile(@PathVariable Long fileid) throws IOException {
+        fileService.deleteFile(fileid);
+
+        return "redirect:/file/listAll";
+    }
+
 }
