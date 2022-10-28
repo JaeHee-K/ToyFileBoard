@@ -103,4 +103,6 @@ saved_path varchar(200));
   
 - src/main/resources 아래에 files 폴더를 생성  
   
-- csrf는 사용하지 않습니다
+- csrf는 사용하지 않습니다  
+  
+- 프로젝트 init에 문제 발생 시 intellij기준 maven home path를 bundle로 구성
